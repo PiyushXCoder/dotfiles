@@ -2,6 +2,6 @@ require("xcoder")
 
 --print("Neovide is", vim.g.neovide)
 if vim.g.neovide then
-    vim.opt.guifont = { "Source Code Pro:h10" }
+    vim.opt.guifont = { "Fira Code:h11" }
 end
 
