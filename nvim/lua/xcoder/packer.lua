@@ -53,8 +53,6 @@ return require('packer').startup(function(use)
   }
 
   use("folke/zen-mode.nvim")
-  use("github/copilot.vim")
-  use("eandrju/cellular-automaton.nvim")
   use("laytan/cloak.nvim")
   use {
       "windwp/nvim-autopairs",
@@ -63,5 +61,9 @@ return require('packer').startup(function(use)
 
   use 'nvim-tree/nvim-web-devicons'
   use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+
+  -- tasks and debuging
+  use ("Shatur/neovim-tasks")
+  use ("mfussenegger/nvim-dap")
 end)
 
