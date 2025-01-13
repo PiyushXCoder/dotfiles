@@ -4,6 +4,7 @@ keybinds clear-defaults=true {
 		unbind "Ctrl p"
 		unbind "Ctrl o"
 		unbind "Ctrl q"
+		unbind "Ctrl s"
 		unbind "Ctrl h"
 		// uncomment this and adjust key if using copy_on_select=false
 		// bind "Alt c" { Copy; }
@@ -151,7 +152,7 @@ keybinds clear-defaults=true {
 		bind "Ctrl n" { SwitchToMode "Resize"; }
 	}
 	shared_except "scroll" "locked" {
-		bind "Ctrl s" { SwitchToMode "Scroll"; }
+		bind "Ctrl f" { SwitchToMode "Scroll"; }
 	}
 	shared_except "session" "locked" {
 		bind "Ctrl x" { SwitchToMode "Session"; }
