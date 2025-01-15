@@ -141,6 +141,9 @@ keybinds clear-defaults=true {
 		bind "Alt -" { Resize "Decrease"; }
 		bind "Alt [" { PreviousSwapLayout; }
 		bind "Alt ]" { NextSwapLayout; }
+
+		bind "Ctrl k" { GoToPreviousTab; SwitchToMode "Normal"; }
+		bind "Ctrl j" { GoToNextTab; SwitchToMode "Normal"; }
 	}
 	shared_except "normal" "locked" {
 		bind "Enter" "Esc" { SwitchToMode "Normal"; }
