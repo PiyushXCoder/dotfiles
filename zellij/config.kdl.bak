@@ -11,13 +11,6 @@ keybinds clear-defaults=true {
         bind "Ctrl t" { NewTab; SwitchToMode "locked"; }
         bind "Ctrl w" { CloseTab; SwitchToMode "locked"; }
         bind "Ctrl f" { SwitchToMode "entersearch"; }
-        bind "Alt n" { NewPane; }
-        bind "Alt Shift j" { PageScrollDown; }
-        bind "Alt Shift k" { PageScrollUp; }
-        bind "Alt left" { MoveFocusOrTab "left"; }
-        bind "Alt down" { MoveFocus "down"; }
-        bind "Alt up" { MoveFocus "up"; }
-        bind "Alt right" { MoveFocusOrTab "right"; }
         bind "PageDown" { PageScrollDown; }
         bind "PageUp" { PageScrollUp; }
     }
@@ -328,6 +321,12 @@ default_shell "/usr/bin/fish"
 // Default: "default"
 // 
 default_layout "compact"
+layout {
+    pane size=1 borderless=true {
+        plugin location="compact-bar"
+    }
+    pane
+}
 
 // The folder in which Zellij will look for layouts
 // (Requires restart)
