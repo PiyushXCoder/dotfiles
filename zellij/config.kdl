@@ -9,8 +9,8 @@ keybinds clear-defaults=true {
     locked {
         bind "Ctrl g" { SwitchToMode "normal"; }
         bind "Ctrl t" { NewTab; SwitchToMode "locked"; }
-        bind "Ctrl w" { CloseTab; SwitchToMode "locked"; }
-        bind "Ctrl f" { SwitchToMode "entersearch"; }
+        bind "Ctrl Shift w" { CloseTab; SwitchToMode "locked"; }
+        bind "Ctrl Shift f" { SwitchToMode "entersearch"; }
         bind "Alt n" { NewPane; }
         bind "Alt Shift j" { PageScrollDown; }
         bind "Alt Shift k" { PageScrollUp; }
