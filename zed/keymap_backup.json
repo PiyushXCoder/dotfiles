@@ -1,0 +1,187 @@
+// Zed keymap — AstroNvim-style bindings
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  // ── Autocomplete / Code Actions menu ──
+  {
+    "context": "Editor && (showing_code_actions || showing_completions)",
+    "bindings": {
+      "up": "editor::ContextMenuPrevious",
+      "down": "editor::ContextMenuNext",
+      "tab": "editor::ContextMenuNext",
+      "shift-tab": "editor::ContextMenuPrevious"
+    }
+  },
+  {
+    "context": "Editor && showing_completions",
+    "bindings": {
+      "enter": "editor::ConfirmCompletion"
+    }
+  },
+
+  // ── Normal mode (leader = space) ──
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      // Tab switching
+      "ctrl-j": "pane::ActivateNextItem",
+      "ctrl-k": "pane::ActivatePrevItem",
+
+      // Buffer / Close  (AstroNvim: <Space>c, <Space>C)
+      "space c": "pane::CloseActiveItem",
+      "shift-space c": "pane::CloseActiveItem",
+
+      // Save  (AstroNvim: <Space>w)
+      "space w": "workspace::Save",
+
+      // New file  (AstroNvim: <Space>n)
+      "space n": "workspace::NewFile",
+
+      // Quit window  (AstroNvim: <Space>q)
+      "space q": "pane::CloseActiveItem",
+
+      // ── Find / Search  (AstroNvim: <Space>f*) ──
+      "space f f": "file_finder::Toggle",
+      "space f w": "pane::DeploySearch",
+      "space f b": "tab_switcher::Toggle",
+      "space f o": "file_finder::Toggle",
+      "space f h": "zed::OpenKeymap",
+      "space f t": "theme_selector::Toggle",
+      "space f c": "editor::FindAllReferences",
+      "space f k": "zed::OpenKeymap",
+
+      // ── LSP  (AstroNvim: <Space>l*) ──
+      "space l f": "editor::Format",
+      "space l a": "editor::ToggleCodeActions",
+      "space l r": "editor::Rename",
+      "space l d": "editor::Hover",
+      "space l s": "outline::Toggle",
+      "space l S": "project_symbols::Toggle",
+      "space l R": "editor::FindAllReferences",
+      "space l D": "diagnostics::Deploy",
+
+      // Go-to LSP  (AstroNvim: gd, gy, gK)
+      "g d": "editor::GoToDefinition",
+      "g y": "editor::GoToTypeDefinition",
+      "g r": "editor::FindAllReferences",
+      "g i": "editor::GoToImplementation",
+      "shift-k": "editor::Hover",
+      // "g shift-k": signature help — no equivalent in Zed
+
+      // ── Git  (AstroNvim: <Space>g*) ──
+      "space g b": "editor::ToggleGitBlame",
+      "space g d": "editor::ToggleHunkDiff",
+      // "space g t": git status — no equivalent in Zed
+      "space g l": "editor::ToggleGitBlameInline",
+
+      // Git hunk navigation  (AstroNvim: ]g / [g)
+      "] g": "editor::GoToHunk",
+      "[ g": "editor::GoToPrevHunk",
+
+      // ── Diagnostics navigation  (AstroNvim: ]d / [d, ]e / [e) ──
+      "] d": "editor::GoToDiagnostic",
+      "[ d": "editor::GoToPrevDiagnostic",
+      "] e": "editor::GoToDiagnostic",
+      "[ e": "editor::GoToPrevDiagnostic",
+
+      // Hover diagnostics  (AstroNvim: gl, <Space>ld)
+      "g l": "editor::Hover",
+
+      // ── Buffers  (AstroNvim: <Space>b*, ]b, [b) ──
+      "space b b": "tab_switcher::Toggle",
+      "space b c": "pane::CloseInactiveItems",
+      "space b C": "pane::CloseAllItems",
+      "space b d": "pane::CloseActiveItem",
+      "] b": "pane::ActivateNextItem",
+      "[ b": "pane::ActivatePrevItem",
+
+      // ── Splits  (AstroNvim: | and \) ──
+      "|": "pane::SplitRight",
+      "\\": "pane::SplitDown",
+
+      // ── Comment  (AstroNvim: <Space>/) ──
+      "space /": "editor::ToggleComments",
+
+      // ── Explorer  (AstroNvim: <Space>e, <Space>o) ──
+      "space e": "workspace::ToggleLeftDock",
+      "space o": "workspace::ToggleLeftDock",
+
+      // ── Symbols outline  (AstroNvim: <Space>lS) ──
+
+      // ── Toggle UI  (AstroNvim: <Space>u*) ──
+      "space u w": "editor::ToggleSoftWrap",
+      "space u d": "diagnostics::Deploy",
+      "space u z": "workspace::ToggleCenteredLayout",
+
+      // ── Debug  (AstroNvim: <Space>d*) ──
+      "space d b": "editor::ToggleBreakpoint",
+      "space d c": "debugger::Continue",
+      "space d i": "debugger::StepInto",
+      "space d o": "debugger::StepOver",
+      "space d shift-o": "debugger::StepOut",
+      // "space d q": stop debug — no confirmed action name in Zed
+      "space d r": "debugger::Start",
+
+      // ── Terminal  (AstroNvim: <Space>tf, <Space>th, <Space>tv) ──
+      "space t f": "terminal_panel::ToggleFocus",
+
+      // ── Search / Replace ──
+      "space s": "pane::DeploySearch",
+
+      // ── Quickfix / Location List  (AstroNvim: <Space>xq, <Space>xl) ──
+      "space x q": "diagnostics::Deploy",
+
+      // 0 → ^ removed: conflicts with count motions like 20j
+      // "0": "vim::FirstNonWhitespace"
+    }
+  },
+
+  // ── Visual mode ──
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {
+      // Comment toggle  (AstroNvim: <Space>/ → gc)
+      "space /": "editor::ToggleComments",
+
+      // Indent / Unindent  (AstroNvim: <Tab> / <S-Tab>)
+      "tab": "editor::Indent",
+      "shift-tab": "editor::Outdent",
+
+      // 0 → ^ removed: conflicts with count motions like 20j
+      // "0": "vim::FirstNonWhitespace"
+    }
+  },
+
+  // ── Workspace-level bindings ──
+  {
+    "context": "Workspace",
+    "bindings": {
+      "space e": "workspace::ToggleLeftDock",
+
+      // Tab switching
+      // (moved to Editor && vim_mode == normal for higher priority)
+
+      // Force write  (AstroNvim: <C-s>)
+      "ctrl-s": "workspace::Save",
+
+      // Force quit  (AstroNvim: <C-q>)
+      "ctrl-q": "zed::Quit",
+
+      // Toggle terminal  (AstroNvim: <C-'>)
+      "ctrl-`": "terminal_panel::ToggleFocus"
+    }
+  },
+
+  // ── Terminal panel ──
+  {
+    "context": "Terminal",
+    "bindings": {
+      // Back to editor from terminal  (AstroNvim: <C-'>)
+      "ctrl-`": "workspace::ToggleBottomDock"
+    }
+  }
+]
